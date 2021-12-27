@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- MDB Ecommerce JavaScript -->
+    <script type="text/javascript" src="{% static 'js/mdb.ecommerce.min.js' %}"></script>
+  <!-- Your custom scripts (optional) -->
+
+
+
+  <script type="text/javascript">
+    $(function () {
+      $('.material-tooltip-main').tooltip({
+        template: '<div class="tooltip md-tooltip-main"><div class="tooltip-arrow md-arrow"></div><div class="tooltip-inner md-inner-main"></div></div>'
+      });
+    });
+
+    $(document).ready(function () {
+      $('.mdb-select').materialSelect();
+      $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
+        $(this).closest('.select-outline').find('label').toggleClass('active');
+        $(this).closest('.select-outline').find('.caret').toggleClass('active');
+      });
+    });
+
+
+
+//countdown  
+
+var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("daysxx").innerHTML = days;
+document.getElementById("hoursx").innerHTML = hours;
+document.getElementById('min').innerHTML = minutes;
+document.getElementById('sec').innerHTML = seconds;
+  //If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+  </script>

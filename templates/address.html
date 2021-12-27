@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content%}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+      <!-- Heading -->
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+
+          <!--Card-->
+          <div class="card">
+
+            <!--Card content-->
+            <form class="card-body" method="POST">
+{% csrf_token %}
+              <!--Grid row-->
+              <div class="row">
+                
+               
+
+                
+                 
+                <!--Grid column-->
+                <div class="col-md-12 mb-2">
+
+              <!--address-->
+              {{form2|crispy}}
+              <div class="md-form mb-5">
+                <input type="text" id="address" name='address1' class="form-control" placeholder="1234 Main St" >
+                <label for="address" class="">Address</label>
+              </div>
+
+              <!--address-2-->
+              <div class="md-form mb-5">
+                <input type="text" id="address-2" name='address2' class="form-control" placeholder="Apartment or suite" >
+                <label for="address-2" class="">Address 2 (optional)</label>
+              </div>
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+
+                  <label for="country">Country</label>
+                  {{ form.country }}
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" id="state" placeholder="" name='state' >
+                  <div class="invalid-feedback">
+                    State required.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="zip">Zip</label>
+                  <input type="text" class="form-control" name='zip' id="zip" placeholder="" >
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+
+            </form>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+{% endblock content%}

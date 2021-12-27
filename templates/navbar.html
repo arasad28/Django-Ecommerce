@@ -1,0 +1,79 @@
+   <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+
+      <div class="container-xl">
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav1"
+          aria-controls="basicExampleNav1" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="basicExampleNav1">
+
+          <!-- Left -->
+          <ul class="navbar-nav align-items-start">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i
+                  class="fas fa-bars text-muted mr-2"></i> Categories </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'core:laptop' %}">Laptop</a>
+                <a class="dropdown-item" href="{% url 'core:electronics' %}">Electronics</a>
+                <a class="dropdown-item" href="{% url 'core:mobile' %}">Mobile</a>
+                <a class="dropdown-item" href="#">Earphone</a>
+                <a class="dropdown-item" href="#">Tshirt</a>
+                <a class="dropdown-item" href="#">Shoe</a>
+                <a class="dropdown-item" href="#">Gadget</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ready to ship</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Trade shows</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sell with us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Demo pages</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="page-index.html">Main</a>
+                <a class="dropdown-item" href="page-category.html">All category</a>
+                <a class="dropdown-item" href="page-listing-large.html">Listing list</a>
+                <a class="dropdown-item" href="page-listing-grid.html">Listing grid</a>
+                <a class="dropdown-item" href="page-shopping-cart.html">Shopping cart</a>
+                <a class="dropdown-item" href="page-detail-product.html">Item detail</a>
+                <a class="dropdown-item" href="page-content.html">Info content</a>
+                <a class="dropdown-item" href="page-user-login.html">Page login</a>
+                <a class="dropdown-item" href="page-user-register.html">Page register</a>
+                <a class="dropdown-item disabled text-muted" href="#">More components</a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav ml-md-auto align-items-start">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Get the app</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" data-toggle="dropdown">English</a>
+              <div class="dropdown-menu dropdown-menu-lg-right">
+                <a class="dropdown-item" href="#">Russian</a>
+                <a class="dropdown-item" href="#">French</a>
+                <a class="dropdown-item" href="#">Spanish</a>
+                <a class="dropdown-item" href="#">Chinese</a>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+        <!-- Links -->
+
+      </div>
+
+    </nav>

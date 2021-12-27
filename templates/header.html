@@ -1,0 +1,112 @@
+{% load cart_template_tags %}
+
+
+<div class="jumbotron white border-bottom mb-0">
+      <div class="container-xl py-2">
+
+        <!-- Grid row -->
+        <div class="row align-items-center">
+
+          <!-- Grid column -->
+          <div class="col-lg-3 col-xl-2 mt-3 mt-lg-0">
+            <a href="/">
+              <strong><span class="text-success">E</span><span>commerce</span></strong>
+            </a>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-5 col-xl-6">
+
+            <form action="{% url 'core:search' %}">
+
+              <div class="md-form md-outline input-group md-input-group w-100">
+
+                <div class="select-outline">
+                  <select class="mdb-select md-form md-outline my-0">
+                    <option value="">All type</option>
+                    <option value="codex">Special</option>
+                    <option value="comments">Only best</option>
+                    <option value="content">Latest</option>
+                  </select>
+                </div>
+
+                <input type="text" name="q" class="form-control mb-0" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button class="btn btn-primary btn-md px-3" type="submit">
+                    <i class="fa fa-search"></i> Search
+                  </button>
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 col-xl-4 mt-2 mb-1 mb-md-0 pb-2 pb-md-0">
+
+            <!-- Icons -->
+            <div class="d-flex justify-content-start justify-content-md-end text-center">
+
+              <div class="mr-4">
+
+                <a href="#!" role="button">
+                  <div>
+                    <i class="fas fa-user fa-lg text-muted"></i>
+                    <span
+                      class="counter counter-floating counter-lg-icon position-absolute ml-n1 mt-1"><strong>3</strong></span>
+                  </div>
+                  <small class="text-dark">My profile</small>
+                </a>
+
+              </div>
+              <div class="mr-4">
+
+                <a href="#!" role="button">
+                  <div>
+                    <i class="fas fa-comment-dots fa-lg text-muted"></i>
+                    <span
+                      class="counter counter-floating counter-lg-icon position-absolute ml-n1 mt-1"><strong>1</strong></span>
+                  </div>
+                  <small class="text-dark">Message</small>
+                </a>
+
+              </div>
+              <div class="mr-4">
+
+                <a href="#!" role="button">
+                  <div>
+                    <i class="fas fa-store fa-lg text-muted"></i>
+                  </div>
+                  <small class="text-dark">Orders</small>
+                </a>
+
+              </div>
+              <div class="mr-0">
+
+                <a href="{% url 'core:cart' %}" role="button">
+                  <div>
+                    <i class="fas fa-shopping-cart fa-lg text-muted"></i>
+                    <span
+                      class="counter counter-floating counter-lg-icon position-absolute ml-n1 mt-1"><strong>{{ request.user|cart_item_count }}</strong></span>
+                  </div>
+                  <small class="text-dark">Cart</small>
+                </a>
+
+              </div>
+
+            </div>
+            <!-- Icons -->
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+    </div>

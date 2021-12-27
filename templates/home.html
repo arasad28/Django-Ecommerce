@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container-xl">
+
+      <!-- Section main -->
+      <section class="pt-2 mt-4">
+
+        <div class="card">
+          <div class="card-body">
+
+            <!-- Grid row -->
+            <div class="row">
+
+              <!-- Grid column -->
+              {% include 'left_menu.html' %}
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              {% include 'slider.html' with slider=slider %}
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              {% include 'popular.html' %}
+              <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+          </div>
+        </div>
+
+      </section>
+      <!-- Section main -->
+
+      <!-- Section deal -->
+  {% include 'deal.html' %}
+      <!-- Section deal -->
+
+      <!-- shop section  -->
+        <!-- Main layout -->
+  <section>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 mt-3 mb-4">
+
+          <!-- Section: Categories -->
+          {% include 'categories.html' %}
+          <!-- Section: Categories -->
+
+          <!-- Section: Filters -->
+          {% include 'filter.html' %}
+          <!-- Section: Filters -->
+
+        </div>
+        <div class="col-lg-8">
+
+          <!-- Section: Block Content -->
+          <section>
+
+            <div class="row d-flex justify-content-around align-items-center mb-4">
+              <div class="col-12 col-md-3 text-center text-md-left">
+                <a href="#!" class="text-reset"><i class="fas fa-th-list fa-lg mr-1"></i></a href="#!">
+                <a href="#!" class="text-reset"><i class="fas fa-th-large fa-lg"></i></a href="#!">
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="d-flex flex-wrap">
+                  <div class="select-outline position-relative w-100">
+                    <select class="mdb-select md-outline md-form">
+                      <option value="" disabled selected>Sort by</option>
+                      <option value="1">Popularity</option>
+                      <option value="2">Price: lowest to highest</option>
+                      <option value="3">Price: highest to lowest</option>
+                      <option value="4">Newest</option>
+                      <option value="5">Most rated</option>
+                    </select>
+                    <label>Sorting</label>
+                  </div>
+                </div>
+              </div>
+
+              <!--pagination-->
+              {% if is_paginated %}
+              <div class="col-12 col-md-4 text-center">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-center float-md-right mb-0">
+                  {% if page_obj.has_previous %}
+                    <li class="page-item"><a href="?page={{page_obj.previous_page_number}}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
+                    {% endif %}
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <li class="page-item active"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                    {% elif num|add:"-2" <= page_obj.number and page_obj.number <= num|add:"2" %}
+                    <li class="page-item"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item"><a href="?page={{page_obj.next_page_number}}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
+                    {% endif %}
+                  </ul>
+                </nav>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </section>
+          <!-- Section: Block Content -->
+
+          <!--Section: Block Content-->
+          <section>
+
+            <!-- Grid row -->
+            <div class="row mb-4">
+
+              <!-- Grid column -->
+              {% for item in object_list %}
+              <div class="col-md-6 col-lg-4 mb-4">
+
+                <!-- Card -->
+                <div class="">
+
+                  <div class="view zoom z-depth-2 rounded">
+                    <img class="img-fluid w-100" src="{{item.image.url}}" alt="{{item.title}}">
+                    <a href="{{ item.get_absolute_url }}">
+                      <div class="mask"></div>
+                    </a>
+                  </div>
+
+                  <div class="text-center pt-4">
+
+                    <h5 class="mb-0">{{item.title}}</h5>
+                    <h6 class="mb-3">$ {{item.price}}</h6>
+                    <a href="{{ item.add_to_cart }}" type="button" class="btn btn-primary btn-sm mr-1"><i class="fas fa-cart-plus"></i></a>
+                    <a href="{{ item.get_absolute_url }}" type="button" class="btn btn-light btn-sm"><i class="fas fa-info-circle pr-2"></i>Details</a>
+
+                  </div>
+
+                </div>
+                <!-- Card -->
+
+              </div>
+              {% endfor %}
+              <!-- Grid column -->
+
+             
+
+            </div>
+            <!-- Grid row -->
+
+          </section>
+          <!--Section: Block Content-->
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!-- Main layout -->
+
+
+
+      <!-- shop section  -->
+
+
+<!-- Section apparel -->
+    {% include 'apprel.html' %}
+
+
+
+{% include 'recomended.html' %}
+
+
+   
+
+
+
+
+{% endblock content %}

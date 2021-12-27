@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<section>
+
+    <!-- Grid row -->
+    <div class="row mb-4">
+
+      <!-- Grid column -->
+      {% for item in elc %}
+      <div class="col-md-4 col-lg-3 mb-4">
+
+        <!-- Card -->
+        <div class="">
+
+          <div class="view zoom z-depth-2 rounded">
+            <img class="img-fluid w-100" src="{{item.image.url}}" alt="{{item.title}}">
+            <a href="{{ item.get_absolute_url }}">
+              <div class="mask"></div>
+            </a>
+          </div>
+
+          <div class="text-center pt-4">
+
+            <h5 class="mb-0">{{item.title}}</h5>
+            <h6 class="mb-3">$ {{item.price}}</h6>
+            <a href="{{ item.add_to_cart }}" type="button" class="btn btn-primary btn-sm mr-1"><i class="fas fa-cart-plus"></i></a>
+            <a href="{{ item.get_absolute_url }}" type="button" class="btn btn-light btn-sm"><i class="fas fa-info-circle pr-2"></i>Details</a>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+      </div>
+      {% endfor %}
+      <!-- Grid column -->
+
+     
+
+    </div>
+    <!-- Grid row -->
+
+  </section>
+</div>
+{% endblock content %}
